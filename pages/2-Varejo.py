@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 from utils.load_file import load_dataset
-from utils.ui import setup_sidebar
+from utils.ui import setup_sidebar, add_back_to_top
 from utils.visualizations import (
     show_univariate_grid,
     plot_histogram,
@@ -13,6 +13,7 @@ from utils.visualizations import (
 st.set_page_config(page_title="Análise de Varejo", page_icon="🛍️", layout="wide")
 
 setup_sidebar()
+add_back_to_top()
 
 st.title("🛍️ Análise de Dados de Varejo")
 

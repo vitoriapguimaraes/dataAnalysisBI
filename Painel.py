@@ -1,8 +1,10 @@
 import streamlit as st
 
-from utils.ui import setup_sidebar
+from utils.ui import setup_sidebar, add_back_to_top
 
 st.set_page_config(page_title="Análise de Dados e BI", page_icon="📊", layout="wide")
+
+add_back_to_top()
 
 st.title("Análise de Dados e Business Intelligence")
 

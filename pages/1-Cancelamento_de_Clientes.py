@@ -1,6 +1,6 @@
 import streamlit as st
 from utils.load_file import load_dataset
-from utils.ui import setup_sidebar
+from utils.ui import setup_sidebar, add_back_to_top
 from utils.visualizations import (
     plot_pie,
     plot_histogram,
@@ -12,11 +12,10 @@ from utils.visualizations import (
 )
 
 st.set_page_config(
-    page_title="Análise de Cartão de Crédito",
-    page_icon="💳",
-    layout="wide"
+    page_title="Análise de Cartão de Crédito", page_icon="💳", layout="wide"
 )
 setup_sidebar()
+add_back_to_top()
 
 st.title("💳 Análise de Cancelamento de Cartão de Crédito")
 
