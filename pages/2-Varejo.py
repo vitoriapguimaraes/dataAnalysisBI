@@ -8,6 +8,7 @@ from utils.visualizations import (
     show_univariate_grid,
     plot_histogram,
     plot_bar,
+    COLOR_PALETTE,
 )
 
 st.set_page_config(page_title="Análise de Varejo", page_icon="🛍️", layout="wide")
@@ -114,7 +115,7 @@ with tab_qa:
             fig_q2 = px.line(
                 df_q2, x="Data_Pedido", y="Valor_Venda", title="Tendência de Vendas"
             )
-            fig_q2.update_traces(line_color="#007BFF")
+            fig_q2.update_traces(line_color=COLOR_PALETTE[0])
             st.plotly_chart(fig_q2, use_container_width=True)
 
     # --- Q3 ---
@@ -237,7 +238,7 @@ with tab_qa:
             path=["Categoria", "SubCategoria"],
             values="Valor_Venda",
             color="Categoria",
-            color_discrete_sequence=px.colors.qualitative.Bold,
+            color_discrete_sequence=COLOR_PALETTE,
         )
         fig_q10.update_layout(height=600)
         st.plotly_chart(fig_q10, use_container_width=True)

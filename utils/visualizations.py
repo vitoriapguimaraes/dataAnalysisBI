@@ -1,6 +1,21 @@
 import streamlit as st
 import plotly.express as px
 
+# Paleta de cores padronizada (Baseada no Bootstrap / Material Design)
+# Azul (Primary), Indigo, Roxo, Rosa, Vermelho, Laranja, Amarelo, Verde, Teal, Ciano
+COLOR_PALETTE = [
+    "#007BFF",  # Azul Principal
+    "#DC3545",  # Vermelho
+    "#6610F2",  # Indigo
+    "#6F42C1",  # Roxo
+    "#E83E8C",  # Rosa
+    "#FD7E14",  # Laranja
+    "#FFC107",  # Amarelo
+    "#28A745",  # Verde
+    "#20C997",  # Teal
+    "#17A2B8",  # Ciano
+]
+
 
 def plot_pie(df, names, height=350, title=None):
     """
@@ -10,7 +25,7 @@ def plot_pie(df, names, height=350, title=None):
         df,
         names=names,
         title=title,
-        color_discrete_sequence=px.colors.qualitative.Bold,
+        color_discrete_sequence=COLOR_PALETTE,
     )
     fig.update_layout(height=height)
     st.plotly_chart(fig, use_container_width=True)
@@ -28,7 +43,7 @@ def plot_bar(df, x_col, y_col, title=None, orientation="v", color=None, height=3
         title=title,
         color=color,
         height=height,
-        color_discrete_sequence=px.colors.qualitative.Bold,
+        color_discrete_sequence=COLOR_PALETTE,
     )
     st.plotly_chart(fig, use_container_width=True)
 
@@ -45,7 +60,7 @@ def plot_histogram(
         color=color,
         title=title,
         barmode=barmode,
-        color_discrete_sequence=px.colors.qualitative.Bold,
+        color_discrete_sequence=COLOR_PALETTE,
     )
     if not show_yaxis_title:
         fig.update_layout(yaxis_title=None)
@@ -62,7 +77,7 @@ def plot_boxplot(df, x, y, color=None, title=None, show_xaxis_title=True):
         y=y,
         color=color,
         title=title,
-        color_discrete_sequence=px.colors.qualitative.Bold,
+        color_discrete_sequence=COLOR_PALETTE,
     )
     if not show_xaxis_title:
         fig.update_layout(xaxis_title=None)
@@ -78,8 +93,9 @@ def plot_heatmap(df, numeric_cols, height=600):
         corr,
         text_auto=True,
         aspect="auto",
-        color_continuous_scale="RdBu_r",
+        color_continuous_scale=[COLOR_PALETTE[1], "#FFFFFF", COLOR_PALETTE[0]],
         origin="lower",
+        range_color=[-1, 1],
     )
     fig.update_layout(height=height)
     st.plotly_chart(fig, use_container_width=True)
@@ -128,7 +144,7 @@ def show_univariate_grid(df, numeric_cols, categorical_cols, target_col="Categor
                     color=target_col,
                     title=col,
                     barmode="group",
-                    color_discrete_sequence=px.colors.qualitative.Bold,
+                    color_discrete_sequence=COLOR_PALETTE,
                 )
                 fig_all.update_layout(
                     showlegend=False,
@@ -154,7 +170,7 @@ def show_bivariate_grid(df, numeric_cols, target_col="Categoria"):
                     y=col,
                     color=target_col,
                     title=f"{col} vs {target_col}",
-                    color_discrete_sequence=px.colors.qualitative.Bold,
+                    color_discrete_sequence=COLOR_PALETTE,
                 )
                 fig_all.update_layout(
                     showlegend=False,
