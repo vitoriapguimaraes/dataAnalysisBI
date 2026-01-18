@@ -36,9 +36,6 @@ O repositório está organizado como um **Multi-Page App** com as seguintes aná
 - **🔄 Cancelamento de Assinaturas**
   - Estratégias de retenção baseadas em dados de serviços recorrentes.
 
-- **🏠 Inside Airbnb**
-  - Business Intelligence aplicado ao mercado de hospedagem e preços.
-
 - **👥 Segmentação de Clientes (RFM)**
   - Clustering de consumidores baseado em Recência, Frequência e Valor.
 

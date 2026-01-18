@@ -1,6 +1,6 @@
 import streamlit as st
 from utils.load_file import load_dataset
-from utils.ui import setup_sidebar
+from utils.ui import setup_sidebar, add_back_to_top
 from utils.visualizations import (
     plot_pie,
     plot_histogram,
@@ -12,11 +12,12 @@ from utils.visualizations import (
 )
 
 st.set_page_config(
-    page_title="Análise de Cartão de Crédito", page_icon="📊", layout="wide"
+    page_title="Análise de Cartão de Crédito", page_icon="💳", layout="wide"
 )
 setup_sidebar()
+add_back_to_top()
 
-st.title("Análise de Cancelamento de Cartão de Crédito")
+st.title("💳 Análise de Cancelamento de Cartão de Crédito")
 
 # Data Loading
 try:
@@ -33,7 +34,7 @@ df = df.drop(columns=cols_to_drop, errors="ignore")
 tab_overview, tab_clean, tab_metrics, tab_univariate, tab_heat_map, tab_bivariate = (
     st.tabs(
         [
-            "Visão Geral do Dataset",
+            "Visão Geral",
             "Metodologia de Limpeza",
             "Métricas",
             "Análise Univariada",
@@ -44,7 +45,6 @@ tab_overview, tab_clean, tab_metrics, tab_univariate, tab_heat_map, tab_bivariat
 )
 
 with tab_overview:
-    st.subheader("Sobre o Dataset")
     st.markdown(
         "Este conjunto de dados contém informações sobre clientes de cartão de crédito e se eles cancelaram ou não."
     )
@@ -148,7 +148,7 @@ with tab_univariate:
 
 with tab_heat_map:
     st.header("Mapa de Calor de Correlação")
-    plot_heatmap(df, numeric_cols, height=800)
+    plot_heatmap(df, numeric_cols)
 
 with tab_bivariate:
     st.header("Análise Bivariada (Boxplots)")
