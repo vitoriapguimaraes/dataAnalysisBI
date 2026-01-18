@@ -21,23 +21,12 @@ Centralizar diversos projetos de análise de dados em uma interface unificada, p
 
 O repositório está organizado como um **Multi-Page App** com as seguintes análises principais:
 
-- **💳 Análise de Cancelamento de Cartão (Churn)**
-  - Diagnóstico completo de perfis de clientes propensos ao cancelamento.
-  - Métricas de utilização, engajamento e dados demográficos.
-  - Gráficos interativos (Plotly) para correlações e distribuições.
-
-- **🛍️ Análise de Dados de Varejo**
-  - Exploração de vendas e comportamento de compra.
-  - Identificação de padrões sazonais e categorias de destaque.
-
-- **🎧 Teste de Hipóteses Spotify**
-  - Validação estatística sobre features musicais e popularidade.
-
-- **🔄 Cancelamento de Assinaturas**
-  - Estratégias de retenção baseadas em dados de serviços recorrentes.
-
-- **👥 Segmentação de Clientes (RFM)**
-  - Clustering de consumidores baseado em Recência, Frequência e Valor.
+| Módulo de Análise                    | Descrição e Funcionalidades                                                                        |
+| :----------------------------------- | :------------------------------------------------------------------------------------------------- |
+| **👥 Segmentação de Clientes (RFM)** | Clustering de consumidores baseado em Recência, Frequência e Valor (8 segmentos).                  |
+| **🛍️ Dados de Varejo**               | Exploração de vendas, sazonalidade e comportamento de compra das operações de varejo.              |
+| **💳 Cancelamento de Cartão**        | Diagnóstico de churn, métricas de engajamento e correlações com gráficos interativos.              |
+| **🔄 Cancelamento de Assinaturas**   | Análise de churn em serviços de assinatura (Telco), com simulador de cenários e foco em contratos. |
 
 ## Tecnologias Utilizadas
 
@@ -78,12 +67,15 @@ Siga os passos abaixo para rodar a aplicação localmente:
 
 ## Estrutura de Diretórios
 
-```
+```dash
 dataAnalysisBI/
 ├── data/                # Arquivos CSV e datasets brutos
 ├── notebooks/           # Scripts de EDA e experimentação
 ├── pages/               # Páginas individuais de cada análise
-│   └── 1-Analise_de_Cancelamento_de_Clientes.py
+│   ├── 1-Cancelamento_de_Clientes.py
+│   ├── 2-Varejo.py
+│   ├── 3-Segmentacao_RFM.py
+│   └── 4-Cancelamento_de_Assinatura.py
 ├── utils/               # Módulos reutilizáveis
 │   ├── load_file.py     # Carregamento otimizado de dados
 │   ├── paths.py         # Gerenciamento de caminhos
@@ -95,7 +87,7 @@ dataAnalysisBI/
 
 ## Status
 
-🛠️ Em manutenção
+✅ Concluído
 
 ## Mais Sobre Mim
 
