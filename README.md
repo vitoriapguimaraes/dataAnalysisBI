@@ -1,4 +1,4 @@
-# 📊 Análise de Dados e Business Intelligence
+# Análise de Dados e Business Intelligence
 
 > **Transformando dados brutos em decisões.**  
 > Um portfólio interativo de Data Science e BI, reunindo análises exploratórias, dashboards estratégicos e testes estatísticos em uma única aplicação web.
@@ -7,7 +7,7 @@
 ![Demonstração do Sistema](https://img.shields.io/badge/Status-Em_Desenvolvimento-yellow?style=for-the-badge&logo=appveyor)
 -->
 
-## 🎯 Objetivo
+## Objetivo
 
 Centralizar diversos projetos de análise de dados em uma interface unificada, permitindo navegação fluida entre diferentes estudos de caso, desde churn de clientes até análises de mercado. O objetivo é demonstrar competências em:
 
@@ -17,7 +17,7 @@ Centralizar diversos projetos de análise de dados em uma interface unificada, p
 - Visualização de Dados (Dataviz) e Storytelling
 - Desenvolvimento de Data Apps com Streamlit
 
-## 📂 Projetos e Funcionalidades
+## Projetos e Funcionalidades
 
 O repositório está organizado como um **Multi-Page App** com as seguintes análises principais:
 
@@ -42,7 +42,7 @@ O repositório está organizado como um **Multi-Page App** com as seguintes aná
 - **👥 Segmentação de Clientes (RFM)**
   - Clustering de consumidores baseado em Recência, Frequência e Valor.
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Linguagem**: Python 3.12+
 - **Framework Web**: Streamlit
@@ -50,7 +50,7 @@ O repositório está organizado como um **Multi-Page App** com as seguintes aná
 - **Visualização**: Plotly Express, Matplotlib, Seaborn
 - **Ferramentas**: VS Code, Git
 
-## 🚀 Como Executar
+## Como Executar
 
 Siga os passos abaixo para rodar a aplicação localmente:
 
@@ -79,7 +79,7 @@ Siga os passos abaixo para rodar a aplicação localmente:
 4. **Acesse no navegador**
    O app abrirá automaticamente em: `http://localhost:8501`
 
-## 📂 Estrutura de Diretórios
+## Estrutura de Diretórios
 
 ```
 dataAnalysisBI/
@@ -96,10 +96,10 @@ dataAnalysisBI/
 └── README.md            # Documentação do projeto
 ```
 
-## 📊 Status
+## Status
 
 🛠️ Em manutenção
 
-## 👩‍💻 Mais Sobre Mim
+## Mais Sobre Mim
 
 Acesse os arquivos disponíveis na [Pasta Documentos](https://github.com/vitoriapguimaraes/vitoriapguimaraes/tree/main/DOCUMENTOS) para mais informações sobre minhas qualificações e certificações.
