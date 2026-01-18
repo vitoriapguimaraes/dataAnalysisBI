@@ -8,7 +8,7 @@ add_back_to_top()
 
 st.title("Análise de Dados e Business Intelligence")
 
-st.code(
+st.info(
     "Acesse a Análise Exploratória de Dados, seguida pela Visualizações, Métricas e Insights, na lista abaixo ou na barra lateral"
 )
 
@@ -42,7 +42,12 @@ st.page_link(
 
 st.markdown("---")
 
-st.subheader("Ferramentas utilizadas")
-st.code("Streamlit | Pandas | Plotly | OpenPyXL")
+st.subheader("Ferramentas Utilizadas")
+st.info("Streamlit | Pandas | Plotly | OpenPyXL")
+
+st.subheader("Competências Desenvolvidas")
+st.info(
+    "ETL Pipeline | Data Storytelling | Análise Estatística | Modelagem de Churn | Dashboard Design | UX Writing"
+)
 
 setup_sidebar()
