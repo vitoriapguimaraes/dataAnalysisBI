@@ -26,9 +26,16 @@ st.page_link(
     use_container_width=True,
 )
 
+st.page_link(
+    "pages/3-Segmentacao_RFM.py",
+    label="Segmentação de Clientes (RFM)",
+    icon="👥",
+    use_container_width=True,
+)
+
 st.markdown("---")
 
 st.subheader("Ferramentas utilizadas")
-st.code("Streamlit | Pandas | Matplotlib | Seaborn | Plotly")
+st.code("Streamlit | Pandas | Plotly | OpenPyXL")
 
 setup_sidebar()

@@ -31,7 +31,18 @@ def plot_pie(df, names, height=350, title=None):
     st.plotly_chart(fig, use_container_width=True)
 
 
-def plot_bar(df, x_col, y_col, title=None, orientation="v", color=None, height=350):
+def plot_bar(
+    df,
+    x_col,
+    y_col,
+    title=None,
+    orientation="v",
+    color=None,
+    height=350,
+    labels=None,
+    show_legend=True,
+    color_map=None,
+):
     """
     Renderiza um gráfico de barras.
     """
@@ -44,12 +55,24 @@ def plot_bar(df, x_col, y_col, title=None, orientation="v", color=None, height=3
         color=color,
         height=height,
         color_discrete_sequence=COLOR_PALETTE,
+        labels=labels,
+        color_discrete_map=color_map,
     )
+    if not show_legend:
+        fig.update_layout(showlegend=False)
+
     st.plotly_chart(fig, use_container_width=True)
 
 
 def plot_histogram(
-    df, x, color=None, title=None, barmode="group", show_yaxis_title=True
+    df,
+    x,
+    color=None,
+    title=None,
+    barmode="group",
+    show_yaxis_title=True,
+    labels=None,
+    color_map=None,
 ):
     """
     Renderiza um histograma.
@@ -61,13 +84,24 @@ def plot_histogram(
         title=title,
         barmode=barmode,
         color_discrete_sequence=COLOR_PALETTE,
+        labels=labels,
+        color_discrete_map=color_map,
     )
     if not show_yaxis_title:
         fig.update_layout(yaxis_title=None)
     st.plotly_chart(fig, use_container_width=True)
 
 
-def plot_boxplot(df, x, y, color=None, title=None, show_xaxis_title=True):
+def plot_boxplot(
+    df,
+    x,
+    y,
+    color=None,
+    title=None,
+    show_xaxis_title=True,
+    color_map=None,
+    labels=None,
+):
     """
     Renderiza um boxplot.
     """
@@ -78,6 +112,8 @@ def plot_boxplot(df, x, y, color=None, title=None, show_xaxis_title=True):
         color=color,
         title=title,
         color_discrete_sequence=COLOR_PALETTE,
+        color_discrete_map=color_map,
+        labels=labels,
     )
     if not show_xaxis_title:
         fig.update_layout(xaxis_title=None)
