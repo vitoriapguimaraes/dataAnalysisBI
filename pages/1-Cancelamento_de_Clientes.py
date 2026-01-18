@@ -148,7 +148,7 @@ with tab_univariate:
 
 with tab_heat_map:
     st.header("Mapa de Calor de Correlação")
-    plot_heatmap(df, numeric_cols, height=800)
+    plot_heatmap(df, numeric_cols)
 
 with tab_bivariate:
     st.header("Análise Bivariada (Boxplots)")
