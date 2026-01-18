@@ -1,8 +1,15 @@
 import streamlit as st
-import plotly.express as px
 from utils.load_file import load_dataset
-
 from utils.ui import setup_sidebar
+from utils.visualizations import (
+    plot_pie,
+    plot_histogram,
+    plot_boxplot,
+    plot_heatmap,
+    show_grouped_metrics,
+    show_univariate_grid,
+    show_bivariate_grid,
+)
 
 st.set_page_config(
     page_title="Análise de Cartão de Crédito", page_icon="📊", layout="wide"
@@ -84,30 +91,18 @@ with tab_metrics:
     col1.metric("Total Clientes", df.shape[0])
     col1.metric("Total Colunas", df.shape[1])
     with col2:
-        fig = px.pie(df, names="Categoria")
-        fig.update_layout(height=350)
-        st.plotly_chart(fig, use_container_width=True)
+        plot_pie(df, names="Categoria", height=350)
 
-    st.subheader("Estatísticas Descritivas por Grupo")
-
-    with st.container(border=True):
-        st.markdown("Informação da Pessoa")
-        cols_pessoa = [
+    metrics_groups = {
+        "Informação da Pessoa": [
             "Idade",
             "Sexo",
             "Dependentes",
             "Educação",
             "Estado Civil",
             "Faixa Salarial Anual",
-        ]
-        available_cols = [c for c in cols_pessoa if c in df.columns]
-        st.dataframe(
-            df[available_cols].describe(include="all"), use_container_width=True
-        )
-
-    with st.container(border=True):
-        st.markdown("Relacionamento com o Banco")
-        cols_cliente = [
+        ],
+        "Relacionamento com o Banco": [
             "Categoria Cartão",
             "Meses como Cliente",
             "Produtos Contratados",
@@ -116,25 +111,16 @@ with tab_metrics:
             "Limite",
             "Limite Consumido",
             "Limite Disponível",
-        ]
-        available_cols = [c for c in cols_cliente if c in df.columns]
-        st.dataframe(
-            df[available_cols].describe(include="all"), use_container_width=True
-        )
-
-    with st.container(border=True):
-        st.markdown("Alterações de Consumo")
-        cols_consumo = [
+        ],
+        "Alterações de Consumo": [
             "Mudanças Transacoes_Q4_Q1",
             "Valor Transacoes 12m",
             "Qtde Transacoes 12m",
             "Mudança Qtde Transações_Q4_Q1",
             "Taxa de Utilização Cartão",
-        ]
-        available_cols = [c for c in cols_consumo if c in df.columns]
-        st.dataframe(
-            df[available_cols].describe(include="all"), use_container_width=True
-        )
+        ],
+    }
+    show_grouped_metrics(df, metrics_groups)
 
 
 with tab_univariate:
@@ -156,71 +142,25 @@ with tab_univariate:
             selected_col = st.selectbox("Selecione a coluna:", categorical_cols)
         title = f"Distribuição de {selected_col}"
 
-    fig = px.histogram(
-        df, x=selected_col, color="Categoria", title=title, barmode="group"
-    )
-    st.plotly_chart(fig, use_container_width=True)
+    plot_histogram(df, x=selected_col, color="Categoria", title=title)
 
-    with st.container(border=True):
-        st.subheader("Todas as distribuições")
-        all_cols = numeric_cols + categorical_cols
-
-        if "Categoria" in all_cols:
-            all_cols.remove("Categoria")
-
-        cols = st.columns(3)
-        for i, col in enumerate(all_cols):
-            with cols[i % 3]:
-                fig_all = px.histogram(
-                    df, x=col, color="Categoria", title=col, barmode="group"
-                )
-                fig_all.update_layout(
-                    showlegend=False,
-                    height=300,
-                    margin=dict(l=0, r=0, t=30, b=0),
-                    yaxis_title=None,
-                )
-                st.plotly_chart(fig_all, use_container_width=True)
+    show_univariate_grid(df, numeric_cols, categorical_cols)
 
 with tab_heat_map:
     st.header("Mapa de Calor de Correlação")
-    corr = df[numeric_cols].corr()
-    fig_corr = px.imshow(
-        corr,
-        text_auto=True,
-        aspect="auto",
-        color_continuous_scale="RdBu_r",
-        origin="lower",
-    )
-    fig_corr.update_layout(height=600)
-    st.plotly_chart(fig_corr, use_container_width=True)
+    plot_heatmap(df, numeric_cols, height=800)
 
 with tab_bivariate:
     st.header("Análise Bivariada (Boxplots)")
     y_col = st.selectbox(
         "Selecione a variável numérica para comparar com Churn:", numeric_cols, index=0
     )
-    fig_box = px.box(
+    plot_boxplot(
         df,
         x="Categoria",
         y=y_col,
         color="Categoria",
         title=f"{y_col} vs Status de Churn",
     )
-    st.plotly_chart(fig_box, use_container_width=True)
 
-    with st.container(border=True):
-        st.subheader("Todas as Análises Bivariadas")
-        cols = st.columns(3)
-        for i, col in enumerate(numeric_cols):
-            with cols[i % 3]:
-                fig_all = px.box(
-                    df, x="Categoria", y=col, color="Categoria", title=f"{col} vs Churn"
-                )
-                fig_all.update_layout(
-                    showlegend=False,
-                    height=300,
-                    margin=dict(l=0, r=0, t=30, b=0),
-                    xaxis_title=None,
-                )
-                st.plotly_chart(fig_all, use_container_width=True)
+    show_bivariate_grid(df, numeric_cols)
