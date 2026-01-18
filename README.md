@@ -3,9 +3,7 @@
 > **Transformando dados brutos em decisões.**  
 > Um portfólio interativo de Data Science e BI, reunindo análises exploratórias, dashboards estratégicos e testes estatísticos em uma única aplicação web.
 
-<!--
-![Demonstração do Sistema](https://img.shields.io/badge/Status-Em_Desenvolvimento-yellow?style=for-the-badge&logo=appveyor)
--->
+![Demonstração do Sistema](https://github.com/vitoriapguimaraes/dataAnalysisBI/blob/main/demo/navigation.gif)
 
 ## Objetivo
 
