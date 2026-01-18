@@ -50,6 +50,14 @@ tab_overview, tab_univariate, tab_qa = st.tabs(
 )
 
 with tab_overview:
+
+    # Sobre o dataset
+    st.markdown(
+        """
+        Este conjunto de dados apresenta um panorama detalhado das operações de vendas de uma grande rede varejista.A análise abrange métricas de desempenho financeiro, distribuição geográfica e comportamento por segmentos, permitindo identificar oportunidades de otimização de receita e eficiência nas estratégias de descontos.
+        """
+    )
+
     # Métricas Principais
     col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
     col1.metric("Total de Vendas", f"R$ {df['Valor_Venda'].sum():,.2f}")
