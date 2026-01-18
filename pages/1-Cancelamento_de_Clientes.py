@@ -12,7 +12,9 @@ from utils.visualizations import (
 )
 
 st.set_page_config(
-    page_title="Análise de Cartão de Crédito", page_icon="💳", layout="wide"
+    page_title="Análise de Cartão de Crédito",
+    page_icon="💳",
+    layout="wide"
 )
 setup_sidebar()
 
@@ -33,7 +35,7 @@ df = df.drop(columns=cols_to_drop, errors="ignore")
 tab_overview, tab_clean, tab_metrics, tab_univariate, tab_heat_map, tab_bivariate = (
     st.tabs(
         [
-            "Visão Geral do Dataset",
+            "Visão Geral",
             "Metodologia de Limpeza",
             "Métricas",
             "Análise Univariada",
@@ -44,7 +46,6 @@ tab_overview, tab_clean, tab_metrics, tab_univariate, tab_heat_map, tab_bivariat
 )
 
 with tab_overview:
-    st.subheader("Sobre o Dataset")
     st.markdown(
         "Este conjunto de dados contém informações sobre clientes de cartão de crédito e se eles cancelaram ou não."
     )

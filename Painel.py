@@ -11,8 +11,16 @@ st.code(
 )
 
 st.page_link(
-    "pages/1-Analise_de_Cancelamento_de_Clientes.py",
+    "pages/1-Cancelamento_de_Clientes.py",
     label="Análise de Cancelamento de Cartão de Crédito",
+    icon="💳",
+    use_container_width=True,
+)
+
+st.page_link(
+    "pages/2-Varejo.py",
+    label="Análise de Dados de Varejo",
+    icon="🛍️",
     use_container_width=True,
 )
 

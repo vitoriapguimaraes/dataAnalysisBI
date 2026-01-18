@@ -16,6 +16,23 @@ def plot_pie(df, names, height=350, title=None):
     st.plotly_chart(fig, use_container_width=True)
 
 
+def plot_bar(df, x_col, y_col, title=None, orientation="v", color=None, height=350):
+    """
+    Renderiza um gráfico de barras.
+    """
+    fig = px.bar(
+        df,
+        x=x_col,
+        y=y_col,
+        orientation=orientation,
+        title=title,
+        color=color,
+        height=height,
+        color_discrete_sequence=px.colors.qualitative.Bold,
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
 def plot_histogram(
     df, x, color=None, title=None, barmode="group", show_yaxis_title=True
 ):
