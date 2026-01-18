@@ -1,0 +1,6 @@
+.flake8
+.editorconfig
+.vscode
+__pycache__
+.pyc
+._fixing

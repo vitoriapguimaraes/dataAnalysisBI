@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "data_analysis_bi"
+version = "0.1.0"
+description = "Streamlit Project for Data Analysis and BI"
+authors = [
+  { name="Vitoria", email="vipistori@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "streamlit",
+    "pandas",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["utils*", "pages*"]
+namespaces = false
