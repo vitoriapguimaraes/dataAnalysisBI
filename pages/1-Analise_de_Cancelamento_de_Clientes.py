@@ -12,11 +12,11 @@ from utils.visualizations import (
 )
 
 st.set_page_config(
-    page_title="Análise de Cartão de Crédito", page_icon="📊", layout="wide"
+    page_title="Análise de Cartão de Crédito", page_icon="💳", layout="wide"
 )
 setup_sidebar()
 
-st.title("Análise de Cancelamento de Cartão de Crédito")
+st.title("💳 Análise de Cancelamento de Cartão de Crédito")
 
 # Data Loading
 try:
