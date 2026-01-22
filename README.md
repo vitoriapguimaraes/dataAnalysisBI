@@ -19,7 +19,7 @@ Centralizar diversos projetos de análise de dados em uma interface unificada, p
 
 O repositório está organizado como um **Multi-Page App** com as seguintes análises principais:
 
-| Módulo de Análise                    | Descrição e Funcionalidades                                                                        |
+| Módulo                               | Descrição e Funcionalidades                                                                        |
 | :----------------------------------- | :------------------------------------------------------------------------------------------------- |
 | **👥 Segmentação de Clientes (RFM)** | Clustering de consumidores baseado em Recência, Frequência e Valor (8 segmentos).                  |
 | **🛍️ Dados de Varejo**               | Exploração de vendas, sazonalidade e comportamento de compra das operações de varejo.              |
